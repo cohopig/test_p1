@@ -1,0 +1,53 @@
+<view style='text-align:center'>
+  <text>T客帮帮</text>
+</view>
+<scroll-view class='sv_order_list' scroll-y='true' style="height:{{scrollHeight}}px;">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <picker name='pickernum' value="{{pickernum}}" bindchange='bindPickerChange' range="{{pickerArray}}">
+      <view wx:if="{{type==1}}" class="picker">
+        <image src="{{src}}" class="item-image"></image>
+        订单类型 : {{pickerArray[pickernum]}}
+      </view>
+      <view wx:if="{{type==2}}" class="picker">
+        <image src="{{src}}" class="item-image"></image>
+        发布类型 : {{pickerArray[pickernum]}}
+      </view>
+    </picker>
+    <i-panel title="{{i_1}}">
+      <i-input name='i_1_1' value="" type="textarea" title="{{i_1_1}}" placeholder="{{i_1_1_1}}" maxlength="200" />
+      <i-input name='i_1_2' value="" type="textarea" title="{{i_1_2}}" placeholder="{{i_1_2_1}}" maxlength="200" />
+    </i-panel>
+    <i-panel title="{{i_2}}">
+      <i-input name='i_2_1' value="{{nam}}" type="textarea" title="{{i_2_1}}" placeholder="{{i_2_1_1}}" maxlength="50" />
+      <i-input name='i_2_2' value="{{Wechat}}" type="textarea" title="{{i_2_2}}" placeholder="{{i_2_2_1}}" />
+      <i-input name='i_2_3' value="{{num}}" type="number" title="{{i_2_3}}" placeholder="{{i_2_3_1}}" maxlength="50" />
+      <i-input name='i_2_4' value="{{Add}}" type="textarea" title="{{i_2_4}}" placeholder="{{i_2_4_1}}" maxlength="50" />
+    </i-panel>
+    <i-panel title="{{i_3}}">
+      <i-input name='i_3_1' value="" type="number" right title="{{i_3_1}}" mode="wrapped" placeholder="{{i_3_1_1}}" />
+    </i-panel>
+    <i-panel title="{{i_4}}">
+      <view style="padding: 16px">
+        <i-input-number id='mon2a' name='mon2a' value="{{ valueinputnumber }}" min="0" max="100" bindchange="handleChange1" />
+      </view>
+    </i-panel>
+    <!-- <view class='panel'>
+      <view class='panel-title'>附加服务（可选）</view>
+      <view class='panel-content'>
+        <text class='panel-content2'>
+          加急选项</text>
+        <switch style='text-align:left' color='#e0620d' bindchange="switch2Change" />
+      </view>
+    </view> -->
+    <button class='btn1' formType="submit">
+      <image class='btnImg' src='../../images/check.png'></image>
+      <view>提交</view>
+    </button>
+  </form>
+  <view class='view2'>
+    <button class='btn2' open-type='contact'>
+      <image class='btn2Img' src='../../images/6.png'></image>
+      <view>联系客服</view>
+    </button>
+  </view>
+</scroll-view>

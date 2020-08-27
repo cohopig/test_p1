@@ -1,0 +1,88 @@
+/**app.wxss**/
+
+.container {
+  height: 100%;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+
+.redbtn-fixed button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #1099d7;
+  color: #fff;
+  border-radius: 50rpx;
+  box-shadow: 0 15rpx 10rpx rgba(16, 153, 215, 0.2);
+}
+
+pages {
+  position: relative;
+  z-index: 9999998;
+  background: #fff;
+}
+
+.common {
+  width: auto;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background-color: #faf9f7;
+  border-radius: 40rpx;
+  box-shadow: 0 0 15rpx rgb(238, 143, 19);
+  /* padding: 100rpx 50rpx 20rpx 50rpx;   */
+  padding: 10rpx 10rpx;
+  box-sizing: border-box;
+  align-items: center;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  font-size: 9pt;
+  line-height: 150%;
+  text-align: center;
+  padding: 100rpx 0 15rpx;
+  color: #aaa;
+}
+
+.footer_index3 {
+  display: flex;
+  flex-direction: column;
+  font-size: 9pt;
+  line-height: 150%;
+  text-align: center;
+  padding: 12rpx 0 3rpx;
+  color: #aaa;
+}
+
+/* 条款样式 */
+
+.footer1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 13pt;
+  line-height: 150%;
+  text-align: center;
+  padding: 100rpx 0 15rpx;
+  color: rgb(0, 0, 0);
+}
+
+.sv_order_list {
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+}

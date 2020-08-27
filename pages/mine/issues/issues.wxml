@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="list-btn" bindtap="openList">
+    <image class="btn-icon" src="../../../images/DAIPINGJIA.png"></image>
+    <text class="btn-text">我的反馈记录（{{list.count}}次）</text>
+    <view class="btn-open">
+      <image class="btn-open-img" src="../../../images/DAIPINGJIA.png"></image>
+    </view>
+  </view>
+  <view class="issues-list" wx:if="{{list.status}}">
+    <text>无</text>
+  </view>
+  <view>
+    <text class="issues-label">新建反馈</text>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="issues-panel">
+      <view class="issues-input">
+        <input name='Title' placeholder="请输入反馈标题" />
+      </view>
+      <textarea name='Content' class="issues-textarea" cursor-spacing="50" placeholder="请输入反馈内容"></textarea>
+    </view>
+    <button class='submit-btn' disabled="{{submitBtn}}" formType="submit">
+      <text>提交反馈</text>
+    </button>
+  </form>
+</view>

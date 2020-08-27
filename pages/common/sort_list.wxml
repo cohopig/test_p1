@@ -1,0 +1,22 @@
+<template name="sort_list">
+  <view class="sort-list">
+      <view class="sort"
+      bindtap="onOverallTag">{{sortSelected}}
+      <image src="../../images/location.png" 
+      style="width:20rpx;height:20rpx;"></image></view>
+      <view data-index="0"
+      bindtap="onTapTag0" 
+      class="sort {{selected == 0?'sort-active':''}}">
+        生活相关
+      </view>
+      <view data-index="1"
+      bindtap="onTapTag1" 
+      class="sort {{selected == 1?'sort-active':''}}">
+        在线工作
+      </view>
+      <view class="sort"
+      bindtap="onFilter">筛选
+      <image src="../../images/location.png" 
+      style="width:22rpx;height:22rpx;"></image></view>
+  </view>
+</template>

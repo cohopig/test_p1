@@ -1,0 +1,79 @@
+<view style="margin-top: 60rpx;">
+  <i-card bindtap="" urgent="{{urgent}}" title="订单类型：{{pickerArray[Order_type]}}" extra="{{create_time}}" condition="订单状态：{{ConditionArray[Order_condition]}}" thumb="{{srcArray[Order_type]}}" data-menuItem="{{order_list[index]}}">
+
+    <view wx:if="{{Order_type<3}}" slot="content">订单内容：{{Order_content}}</view>
+    <view wx:if="{{Order_type==3}}" slot="footer">擅长的技能：{{ Order_content }}</view>
+    <view wx:if="{{Order_type<3}}" slot="footer">订单备注：{{Order_notes}}</view>
+    <view wx:if="{{Order_type==3}}" slot="footer">技能的成就：{{ Order_notes }}</view>
+    <view wx:if="{{Order_type<3}}" wx:if="{{hasOrder}}" slot="footer">配送地址：{{Order_Add}}</view>
+    <text wx:if="{{hasOrder}}" selectable='true' slot="footer">Wechat：{{Wechat}}</text>
+    <view wx:if="{{Order_type<3}}" slot="footer">顾客昵称：{{Order_name}}</view>
+    <view wx:if="{{Order_type==3}}" slot="footer">T客名字：{{ Order_name }}</view>
+    <view wx:if="{{hasOrder}}" selectable='true' slot="footer" bindtap="PhoneCall">联系号码：
+      <text style='color:{{color_number}}' selectable='true'>{{Order_number}}</text>
+    </view>
+    <view wx:if="{{!Order_mon1a&&Order_type<3}}" slot="footer">订单预计总价：顾客未预估，请T客针对订单自行分析</view>
+    <view wx:if="{{!Order_mon1a&&Order_type==3}}" slot="footer">服务过程预计产生的额外费用：无</view>
+    <view wx:if="{{Order_mon1a}}" slot="footer">订单预计总价：{{Order_mon1a}}</view>
+    <view wx:if="{{Order_mon1a&&Order_type==3}}" slot="footer">服务过程预计产生的额外费用：{{ Order_mon1a }}</view>
+    <view wx:if="{{Order_type<3}}" slot="footer">订单报酬：{{Order_mon2a}}</view>
+    <view wx:if="{{Order_type==3}}" slot="footer">您将支付的酬劳：{{ Order_mon2a }}</view>
+
+    <view wx:if="{{Order_type==4}}" slot="footer">主题/内容：{{ Order_content }}</view>
+    <view wx:if="{{Order_type==4}}" slot="footer">备注：{{ Order_notes }}</view>
+    <view wx:if="{{Order_type==4}}" slot="footer">昵称：{{ Order_name }}</view>
+    <view wx:if="{{Order_type==4&&hasOrder}}" slot="footer">联系号码：{{ Order_number }}</view>
+    <view wx:if="{{Order_type==4&&hasOrder}}" slot="footer">Wechat{{ Wechat }}</view>
+    <view wx:if="{{Order_type==4&&Order_mon1a}}" slot="footer">预计总价：{{ Order_mon1a }}</view>
+    <view wx:if="{{Order_type==4&&!(Order_mon1a)}}" slot="footer">预计总价：另议</view>
+    <text slot="footer" selectable='true'>订单编号：{{Olyid}}</text>
+    <view wx:if="{{Order_type==0}}" slot="footer" class="footer_index3">eg：购买商品费用由T客代付，顾客在交付时结清</view>
+    <view wx:if="{{Order_type==1}}" slot="footer" class="footer_index3">eg:贵重物品不要轻易交由他人</view>
+    <view wx:if="{{Order_type==2}}" slot="footer" class="footer_index3">eg:贵重物品不要轻易交由他人</view>
+    <view wx:if="{{Order_type==3}}" slot="footer" class="footer_index3">为确保服务质量,若涉及交易,请勿在平台外交易</view>
+    <view wx:if="{{Order_type==4}}" slot="footer" class="footer_index3">信息发布型内容,为确保服务质量,若涉及交易,请勿在平台外交易</view>
+  </i-card>
+</view>
+<modal hidden="{{hidden2}}" title="温馨提示" confirm-text="确认接取订单" cancel-text="返回页面" bindcancel="bindcancel2" bindconfirm="okOrder" no-cancel="{{nocancel}}">
+  <view style='text-align:center'>请确定是否接取订单</view>
+  <view style='text-align:center;color:#ff0000'>接取订单三分钟后不可取消订单</view>
+</modal>
+<modal hidden="{{hidden}}" title="温馨提示" confirm-text="确认取消订单" cancel-text="返回页面" bindcancel="bindcancel" bindconfirm="CancelOrder" no-cancel="{{nocancel}}">
+  多次取消将影响您在平台的信用数据，请确认无误再执行操作
+</modal>
+
+<!-- <view style='width:37%' class="common" wx:if="{{!hideCommon&&hideCommon1}}">
+  <image class='btnImg2' src='../../images/倒计时.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex' >{{clock}}</view>
+</view> -->
+
+<view class="chargeInfo-model result-model" wx:if="{{!hideCommon&&hideCommon1}}">
+  <text class="chargeInfo-model-title">倒计时：</text>
+  <view class="chargeInfo-model-info">
+    <text class="model-info">{{clock}}</text>/秒
+  </view>
+</view>
+
+<view style='width:60%' class="common" wx:if="{{!hideText&&hideText2}}">
+  <image class='btnImg2' src='../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>三分钟后将无法取消订单</view>
+</view>
+<view style='width:60%' class="common" wx:if="{{hideText&&!warm}}">
+  <image class='btnImg2' src='../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>请在规定时间内完成订单</view>
+</view>
+<view style='width:60%' class="common" wx:if="{{warm}}">
+  <image class='btnImg2' src='../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>订单已超时，请尽快完成</view>
+</view>
+
+<button wx:if="{{!hasOrder}}" class='btn_OK' bindtap="ok">
+  <image class='btnImg' src='../../images/订单完成.png'></image>
+  <view style='font-size: 32rpx;margin:5rpx 20rpx 5rpx'>确认接取订单</view>
+</button>
+<button wx:if="{{hasOrder}}" class='btn_Cancel' bindtap="cancel">
+  <image class='btnImg' src='../../images/取消订单1.png'></image>
+  <view style='font-size: 29rpx;margin:5rpx 20rpx 5rpx'>取消订单</view>
+</button>
+
+<!-- {{showCouponFlag==true?"active":""}} -->

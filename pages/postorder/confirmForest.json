@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "请再次确认订单信息",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "dark",
+  
+    "disableScroll": true
+  
+}

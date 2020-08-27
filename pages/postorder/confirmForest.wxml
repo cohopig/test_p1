@@ -1,0 +1,18 @@
+<i-card title="订单类型 {{pickerArray[pickernum]}} " extra="订单编号" thumb="{{src}}" data-menuItem="{{order_list[index]}}">
+  <view wx:if="{{pickernum!=3}}" slot="content">订单内容：{{ i_1_1 }}</view>
+  <view wx:if="{{pickernum!=3}}" slot="footer">订单备注：{{ i_1_2 }}</view>
+  <view wx:if="{{pickernum!=3}}" slot="footer">收件人昵称：{{ i_2_1 }}</view>
+  <view wx:if="{{pickernum==3}}" slot="footer">擅长的技能：{{ i_1_1 }}</view>
+  <view wx:if="{{pickernum==3}}" slot="footer">技能的成就：{{ i_1_2 }}</view>
+  <view wx:if="{{pickernum==3}}" slot="footer">您的名字：{{ i_2_1 }}</view>
+  <view slot="footer">wechat：{{ i_2_2 }}</view>
+  <view slot="footer">联系号码：{{ i_2_3 }}</view>
+  <view slot="footer">收件地址：{{ i_2_4 }}</view>
+  <view wx:if="{{i_3_1}}" slot="footer">订单价格：{{ i_3_1 }}</view>
+  <view wx:if="{{i_4_1}}" slot="footer">您将支付的酬劳：{{ i_4_1 }}</view>
+  <view wx:if="{{pickernum==3}}" slot="footer">您将获得酬劳：{{ i_4_1 }}</view>
+</i-card>
+<view style="text-align:center">
+  <i-button bind:click="formSubmitB1" type="success" shape="circle">确认提交</i-button>
+
+</view>

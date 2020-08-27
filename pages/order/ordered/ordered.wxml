@@ -1,0 +1,31 @@
+<view class="header-title">我的评价</view>
+<view class="sort-list">
+  <view data-index="0" bindtap="onTapTag" class="sort {{selected == 0?'sort-active':''}}">
+    我是顾客
+  </view>
+  <view data-index="1" bindtap="onTapTag_Server" class="sort {{selected == 1?'sort-active':''}}">
+    我是配送员
+  </view>
+</view>
+<scroll-view class='sv_order_list' scroll-y='true' style="height:{{scrollHeight}}px;">
+
+  <block wx:for="{{order_list_mine}}" wx:key="{{order_list}}">
+
+    <view class='main'>
+      <!--待评价、已评价-->
+      <i-card urgent="{{item.urgent}}" title="类型：{{pickerArray[item.Order_type]}} " extra="单号：{{ item.Olyid }}" condition="状态：{{ConditionArray[item.Order_condition]}}" data-menuItem="{{order_list_mine[index]}}" bindtap="Ordercheck">
+        <view slot="content">评价内容：{{ item.Order_content }}</view>
+        <!-- <view slot="footer">完成时间：{{clock}}</view> -->
+        <view slot="footer">开始时间：{{ item.create_time }}</view>
+        <view slot="footer">结束时间：{{ item.Complete_time }}</view>
+      </i-card>
+    </view>
+  </block>
+
+  <view class="footer">
+    <text>Copyright @ 2019 XkItCenter.</text>
+    <text>All Rights Reserved.</text>
+  </view>
+</scroll-view>
+
+<load-more wx:if="{{!order_list_mine.length > 0}}" tip='{{tip}}' loading='{{loading}}'></load-more>

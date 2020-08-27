@@ -1,0 +1,27 @@
+<!--pages/order/ordered/or.wxml-->
+
+<view class='main'>
+  <view>
+    <i-cell title=" 订单编号： ">
+      <text class="issues-label" selectable='true'>{{Olyid}}</text>
+    </i-cell>
+  </view>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="issues-panel">
+      <view class="issues-input">
+        <text>TEL：</text>
+        <input name='Tel' value="{{Tel}}" placeholder="您的联系号码，以便更好的反馈" />
+      </view>
+      <textarea name='Content' class="issues-textarea" cursor-spacing="50" placeholder="评价内容"></textarea>
+    </view>
+    <i-cell title="为服务您的T客打分：">
+      <i-rate bind:change="onChange1" value="{{starIndex1}}">
+      </i-rate>
+    </i-cell>
+
+    <button class='submit-btn' disabled="{{submitBtn}}" formType="submit">
+      <text>提交评价</text>
+    </button>
+  </form>
+
+</view>

@@ -1,0 +1,9 @@
+<view class="i-class i-cell i-input {{ error ? 'i-input-error' : '' }} {{ mode === 'wrapped' ? 'i-input-wrapped' : '' }}">
+  <view wx:if="{{ title }}" class="i-cell-hd i-input-title">{{ title }}</view>
+  <input wx:if="{{ type === 'textarea' }}" auto-height disabled="{{ disabled }}" focus="{{ autofocus }}" value="{{ value }}" placeholder="{{ placeholder }}" maxlength="{{ maxlength }}" class="i-input-input i-cell-bd {{ right ? 'i-input-input-right' : '' }}"
+    placeholder-class="i-input-placeholder" bindinput="handleInputChange" bindfocus="handleInputFocus" bindblur="handleInputBlur"/>
+  <input wx:else type="{{ type }}" auto-height disabled="{{ disabled }}" focus="{{ autofocus }}" value="{{ value }}" placeholder="{{ placeholder }}" maxlength="{{ maxlength }}" class="i-input-input i-cell-bd {{ right ? 'i-input-input-right' : '' }}" placeholder-class="i-input-placeholder"
+    bindinput="handleInputChange" bindfocus="handleInputFocus" bindblur="handleInputBlur" />
+</view>
+<!-- wx:else
+        type="{{ type }}" -->

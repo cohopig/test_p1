@@ -1,0 +1,22 @@
+<template name="order1">
+  <view class="sort-list1">
+      <view class="sort1"
+      bindtap="onOverallTag">{{sortSelected}}
+      <image src="/images/user-code.png" 
+      style="width:20rpx;height:20rpx;"></image></view>
+      <view data-index="0"
+      bindtap="onTapTag0" 
+      class="sort {{selected == 0?'sort-active':''}}">
+        日常代做
+      </view>
+      <view data-index="1"
+      bindtap="onTapTag1" 
+      class="sort {{selected == 1?'sort-active':''}}">
+        能力共享
+      </view>
+      <view class="sort1"
+      bindtap="onFilter">筛选
+      <image src="/images/user-code.png" 
+      style="width:22rpx;height:22rpx;"></image></view>
+  </view>
+</template>

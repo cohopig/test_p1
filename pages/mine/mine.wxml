@@ -1,0 +1,134 @@
+<!-- <view class='ground1' style='padding:{{scrollHeight}}rpx'>
+  <view class='nav-title' style='padding:{{scrollHeight}}rpx'>{{name}}</view>
+</view> -->
+<view style='background-color:#f5f5f5' class="container">
+  <view class='user'>
+    <!-- <navigator url="../user-edit/user-edit">
+      <image class='userimg' src='{{userInfo.avatarUrl}}'></image>
+    </navigator> -->
+    <view class='btimg'>
+      <button class='btn1' open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">
+        <image class='userimg' src='{{userInfo.avatarUrl}}'></image>
+      </button>
+    </view>
+    <view class='userinfo'>
+      <text class='username'>{{userInfo.nickName}}</text>
+      <navigator url='../Integral/Integral'>
+        <text class='Integral' style='font-size: 30rpx;margin:5rpx 20rpx 5rpx;display:flex'>积分：{{Integral}}</text>
+      </navigator>
+      <!-- <view>
+        <text class='cell'>3</text>
+        <text class='cell' wx:if="{{user.userFlag==1}}" bindtap='showActionSheet'>4</text>
+      </view> -->
+    </view >
+    <navigator class='code' url='../user-code/user-code'>
+      <image src='/images/user-code.png'></image>
+    </navigator>
+  </view>
+
+  <view class='account' style='top:{{accounttop}}rpx'>
+    <navigator class='item' url='../account/account'>
+      <text class='text'>完成次数</text>
+      <text class='num'>{{AllGetOrdertimes+AllPostOrdertimes}}<text>次</text></text>
+    </navigator>
+    <navigator class='item' url='../order/ordering/ordering'>
+      <text class='text'>正在进行</text>
+      <text class='num'>{{Ordertimes}} <text>单</text> </text>
+    </navigator>
+  </view>
+
+
+  <view class='order'>
+    <navigator class='item' url='../order/order_my_post/order_my_post'>
+      <image class='icon' src="../../images/form.png"></image>
+      <text class='text'>我发布的订单</text>
+    </navigator>
+    <navigator class='item' url='../order/order'>
+      <image class='icon' src="../../images/form.png"></image>
+      <text class='text'>所有订单</text>
+    </navigator>
+  </view>
+  <!-- 
+  <view class="separate"></view>
+
+  <view class="order" catchtap="toOrder">
+    <text class="myorder-text">我的订单</text>
+    <text class="myorderlook-text">查看全部订单</text>
+    <image class="next-image" src="../../images/form.png"></image>
+  </view>
+
+-->
+  <view class="navs">
+    <block wx:for-items="{{orderItems}}" wx:key="name">
+      <navigator url="{{item.url}}">
+        <view class="nav-item" catchtap="" data-type="{{item.name}}" data-typeid="{{item.typeId}}">
+          <image src="{{item.imageurl}}" class="nav-image" />
+          <view style='font-size: 30rpx;margin:10rpx 20rpx 10rpx'>{{item.name}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+
+  <view class='list'>
+    <view class='section'>
+      <navigator class='row' url='../user-edit/user-edit'>
+        <view class='left'>
+          <image class='icon' src="../../images/SHOUHUODIZHI.png"></image>
+          <text style='font-size:28rpx' class='text'>收货地址</text>
+        </view>
+        <image class='arrow' src='../../images/arrow-right.png'></image>
+      </navigator>
+      <navigator class='row' url='../recomm/recomm?flag=0'>
+        <view class='left'>
+          <image class='icon' src="../../images/SHOUHOUJILU.png"></image>
+          <text style='font-size:28rpx' class='text'>售后记录</text>
+        </view>
+        <image class='arrow' src='../../images/arrow-right.png'></image>
+      </navigator>
+      <navigator class='row' url='../Integral/Integral'>
+        <view class='left'>
+          <image class='icon' src="../../images/JIFENSHANGCHENG.png"></image>
+          <text style='font-size:28rpx' class='text'>积分商城</text>
+        </view>
+        <image class='arrow' src='../../images/arrow-right.png'></image>
+      </navigator>
+      <navigator class='row' url='../../pages/order/ordered/ordered'>
+        <view class='left'>
+          <image class='icon' src="../../images/DAIPINGJIA.png"></image>
+          <text style='font-size:28rpx' class='text'>我的评价</text>
+        </view>
+        <image class='arrow' src='../../images/arrow-right.png'></image>
+      </navigator>
+      <navigator class='row' url='../mine/issues/issues'>
+        <view class='left'>
+          <image class='icon' src="../../images/alert.png"></image>
+          <text style='font-size:28rpx' class='text'>问题反馈</text>
+        </view>
+        <image class='arrow' src='../../images/arrow-right.png'></image>
+      </navigator>
+    </view>
+  </view>
+  <!--   
+  <view class="person-list">
+    <view class="list-item">
+      <navigator url="/pages/location/location">
+        <image class="item-image" src="../../images/收货地址.png"></image>
+      </navigator>
+      <text class="item-text">收货地址</text>
+    </view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/售后记录.png"></image>
+      <text class="item-text">售后记录</text>
+    </view>
+    <view class="list-item">
+      <image class="item-image" src="../../images/待评价.png"></image>
+      <text class="item-text">我的评价</text>
+    </view>
+    <view class="separate"></view>
+  </view> -->
+  <!--<button bindtap="bindAction" class="btn-login" hover-class="gray" type="{{bType}}" size='mini'>{{actionText}}</button>-->
+</view>
+<view class="footer">
+  <text>Copyright @ 2019 XkItCenter.</text>
+  <text>All Rights Reserved.</text>
+</view>

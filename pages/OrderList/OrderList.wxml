@@ -1,0 +1,67 @@
+<!-- <view class='ground1' style='padding:{{scrollHeight}}rpx'>
+  <view class='nav-title' style='padding:{{scrollHeight}}rpx'>{{name}}</view>
+</view> -->
+<import src="../common/sort_list.wxml" />
+<view class="mask" hidden="{{mask1Hidden}}" bindtap="mask1Cancel">
+  <template is="sort_list" data="{{selected,sortSelected}}" />
+  <view class="overall-sort-list">
+    <block wx:for="{{sortList}}" wx:key="">
+      <view class="overall-sort" data-index="{{index}}" bindtap="sortSelected">{{item.sort}}</view>
+    </block>
+  </view>
+</view>
+<view class="mask" hidden="{{mask2Hidden}}" bindtap="mask2Cancel">
+  <template is="sort_list" data="{{selected,sortSelected}}" />
+  <scroll-view class="filterList" scroll-y="true">
+    <view class="filterList-characteristic-title">服务特点</view>
+    <view class="filterList-characteristic-items">
+      <block wx:for="{{characteristicList}}" wx:key="">
+        <view class="filterList-characteristic-item {{characteristicSelected[index]==true?'characteristic-selected':''}}" catchtap="characteristicSelected" data-index="{{index}}">{{item.text}}</view>
+      </block>
+    </view>
+  </scroll-view>
+  <view class="filterList-footer">
+    <view class="filterList-footer-delect" catchtap="clearSelectedNumb">清除筛选</view>
+    <view class="filterList-footer-finish" bindtap="finish">完成
+      <view class="filterList-footer-finish-number" hidden="{{selectedNumb==0}}">{{selectedNumb}}
+      </view>
+    </view>
+  </view>
+</view>
+<!-- <view class="heard" style='padding:{{scrollViewHeight2*5}}rpx'> -->
+<view class="heard">
+  <navigator url="/pages/location/location">
+    <view class="heard-location">
+      <image src="../../images/location.png" class="heard-location-icon" />
+      <text class="heard-location-text">{{address}}</text>
+    </view>
+  </navigator>
+  <view class="heard-search">
+    <!-- <image src="/pages/images/search.png" class="heard-search-icon"/> -->
+    <input bindinput="bindInput" maxlength="10" placeholder="请输入目的地址" />
+  </view>
+</view>
+<view class="header-title">附近订单</view>
+<template is="sort_list" data="{{selected,sortSelected}}" />
+
+<scroll-view class='sv_order_list' bindscrolltoupper="upper" scroll-y='true' style="height:{{scrollHeight2}}px;">
+  <block wx:for="{{order_list}}" wx:key="{{index}}">
+    <i-card bindtap="Ordercheck" urgent="{{item.urgent}}" title="订单类型：{{pickerArray[item.Order_type]}}" extra="{{item.create_time}}" condition="订单状态：{{ConditionArray[item.Order_condition]}}" thumb="{{srcArray[item.Order_type]}}" data-menuItem="{{order_list[index]}}">
+      <view wx:if="{{item.Order_type<=2}}" slot="content">订单内容：{{item.Order_content}}</view>
+      <view wx:if="{{item.Order_type<=2}}" slot="footer">配送地址：{{item.Order_Add}}</view>
+      <view wx:if="{{item.Order_type<=2}}" slot="footer">订单酬劳￥：{{item.Order_mon2a}}</view>
+
+      <view wx:if="{{item.Order_type==3}}" slot="content">代做内容：{{item.Order_content}}</view>
+      <view wx:if="{{item.Order_type==3}}" slot="footer">工作地址：{{item.Order_Add}}</view>
+      <view wx:if="{{item.Order_type==3}}" slot="footer">预计价格￥：{{item.Order_mon2a}}</view>
+      <view wx:if="{{item.Order_type==3}}" slot="footer" class="footer_index3">在线工作型订单,为确保服务质量,请勿在平台外交易</view>
+
+      <view wx:if="{{item.Order_type>3}}" slot="content">订单内容：{{item.Order_content}}</view>
+      <view wx:if="{{item.Order_type>3}}" slot="footer"> 地址：{{item.Order_Add}}</view>
+      <view wx:if="{{item.Order_type>3&&item.Order_mon1a}}" slot="footer">预计价格￥：{{item.Order_mon1a}}</view>
+      <view wx:if="{{item.Order_type==4&&!item.Order_mon1a}}" slot="footer">预计总价￥：另议</view>
+      <view wx:if="{{item.Order_type>3}}" slot="footer" class="footer_index3">信息发布型内容,为确保服务质量,请勿在平台外交易</view>
+    </i-card>
+  </block>
+</scroll-view>
+<load-more wx:if="{{!order_list.length > 0}}" tip='{{tip}}' loading='{{loading}}'></load-more>

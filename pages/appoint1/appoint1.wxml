@@ -1,0 +1,31 @@
+<text>维护完善中····</text>
+<!--<text style="text-align:center">特特跑腿</text>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section1">跑腿内容：
+    <view class='input1'>
+      <textarea placeholder="请在此处输入事件内容" focus="{{focus}}" />
+    </view>
+  </view> 
+  <view class="section1">备注：
+    <view class='input2'>
+      <textarea placeholder="是否有额外需求请备注详细"  />
+    </view>
+  </view>  
+  <navigator url="../navigate1/navigate1?title=navigate1" style="text-align:center" hover-class="navigator-hover">
+    <button style="text-align:center" size='mini' formType="submit" type='primary' plain='default'>提交</button> 
+   </navigator>
+</form>
+<view class="section">  
+  <picker mode="date" value="{{date}}" start="1978-01-01" end="2017-1-23" bindchange="bindDateChange">  
+    <view class="picker">  
+      日期:  {{date}} 
+    </view>  
+  </picker>  
+</view>
+<view class="section">  
+  <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">  
+    <view class="picker">  
+     时间 : {{time}}
+    </view>  
+  </picker>  
+</view> 

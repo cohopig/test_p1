@@ -1,0 +1,106 @@
+.i-card {
+  margin: 0 16px;
+  font-size: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  border: 1rpx solid #cdcdcd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.i-card-full {
+  margin: 0;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+}
+
+.i-card-header {
+  display: flex;
+  padding: 6px 16px;
+  align-items: center;
+}
+
+.i-card-header-content {
+  flex: 1;
+  text-align: left;
+}
+
+.i-card-header-thumb {
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  position: relative;
+  margin-left: 0px;
+  margin-right: 5px;
+  overflow: hidden;
+  background-size: cover;
+  vertical-align: middle;
+}
+
+.i-card-header-title {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #1c2438;
+}
+
+.i-card-header-urgent {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  color: #f00;
+  margin: 5px;
+}
+
+.i-card-header-extra {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+  color: #80848f;
+}
+
+.i-card-header-contidion {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+  color: #1c2438;
+}
+
+.i-card-body {
+  position: relative;
+  padding: 6px 16px;
+  color: #495060;
+  font-size: 14px;
+}
+
+.i-card-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  pointer-events: none;
+  box-sizing: border-box;
+  border: 0 solid #e9eaec;
+  border-top-width: 1px;
+}
+
+.i-card-footer {
+  position: relative;
+  padding: 6px 16px;
+  color: #80848f;
+  font-size: 12px;
+}
+
+.i-card-text {
+  position: relative;
+  text-align: right;
+  padding: 6px 16px;
+  color: #80848f;
+  font-size: 12px;
+}

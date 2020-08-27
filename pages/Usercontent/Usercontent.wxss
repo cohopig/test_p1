@@ -1,0 +1,153 @@
+/* pages/Usercontent/content.wxss */
+
+.add-image, .up-pic image {
+  margin-top: 2%;
+  margin-left: 2%;
+  width: 150rpx;
+  height: 150rpx;
+  color: #ddd;
+  font-size: 144rpx;
+  line-height: 95%;
+  text-align: center;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10rpx;
+}
+
+.picture_list {
+  padding: 20rpx;
+  margin-left: 12%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.picture_item {
+  margin: 10px;
+  margin-left: 0;
+  position: relative;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.picture_item .del {
+  position: absolute;
+  top: -11rpx;
+  right: -11rpx;
+  color: #fff;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 2;
+  line-height: 35rpx;
+  text-align: center;
+  background-color: #f00;
+}
+
+.upload_progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+  border-radius: 8rpx;
+  background-color: #000;
+  color: #fff;
+  width: 160rpx;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 12px;
+}
+
+.picture_item image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.info {
+  margin-top: 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.agreement-text {
+  width: 620rpx;
+  padding: 20rpx;
+  margin: 30rpx auto 0 auto;
+  background: #f4f5f7;
+}
+
+.user-agree {
+  color: #38cfba;
+}
+
+.container-agreement {
+  padding-bottom: 200rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.25rem;
+}
+
+.Image {
+  position: absolute;
+}
+
+.btnImg {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.sv_order_list {
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+  z-index: 9999;
+}
+
+.sv_order_list_1 {
+  -webkit-overflow-scrolling: touch;
+  z-index: 9999;
+  top: auto;
+  bottom: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.btn2 {
+  width: 50%;
+  margin-top: 20rpx;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0;
+}
+
+.viewt {
+  position: fixed;
+  text-align: center;
+  bottom: 30rpx;
+  left: 0;
+  right: 0;
+}

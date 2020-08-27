@@ -1,0 +1,146 @@
+.button-hover {
+  background-color: rgb(250, 250, 250);
+}
+
+.other-button-hover {
+  background-color: blue;
+}
+
+.picker {
+  padding: 5px;
+  background-color: #fff;
+}
+
+.input1 {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.input2 {
+  padding: 0 10rpx;
+  background-color: #fff;
+}
+
+.input3 {
+  padding: 0 10rpx;
+  background-color: #fff;
+}
+
+.section1 {
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+/*#F8F8F8*/
+
+page {
+  background-color: #f8f8f8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+
+.item-image {
+  width: 50rpx;
+  height: 50rpx;
+  margin: 2rpx;
+}
+
+.sv_order_list {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.view2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.btn1 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: rgb(101, 223, 97);
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2 {
+  flex: 1;
+  height: 200rpx;
+  margin-top: 20rpx;
+  color: #999;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+}
+
+.btnImg {
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.btn2Img {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0;
+}
+
+.btn2::after {
+  border-radius: 98rpx;
+  border: 0;
+}
+
+.panel-without-border::after {
+  border: 0 none;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-title {
+  font-size: 14px;
+  line-height: 1;
+  color: #382e1c;
+  padding: 20px 16px 10px;
+}
+
+.panel-content {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+}
+
+.panel-content2 {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  text-align: left;
+}

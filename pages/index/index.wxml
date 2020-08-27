@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<!-- <navbar navbar-data='{{nvabarData}}'></navbar> -->
+
+<view class="container">
+  <!-- <view class='ground1' style='padding:{{scrollHeight}}rpx'>
+    <view class='nav-title' style='padding:{{scrollHeight}}rpx'>{{name}}</view>
+  </view> -->
+  <view class="userinfo" style='margin-top:{{top}}rpx;'>
+    <button wx:if="{{(!hasUserInfo && canIUse)||ErrorHandling}}" class='btn1' open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      <image class='btnImg' src='../../images/_20190320195228.png'></image>
+      <view>点击登陆</view>
+    </button>
+    <block wx:else>
+      <image bindtap="" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+
+  <view wx:if="{{hasStep}}" class="one-tag" style="text-align:center;padding: {{top}}rpx">
+    <text style="font-size:40rpx">欢迎使用</text>
+  </view>
+  <view wx:if="{{!hasStep}}" class="one-tag" style="text-align:center;padding: {{top}}rpx">请点击上方图标登陆</view>
+  <i-steps wx:if="{{hasStep}}">
+    <i-step status="finish" icon="barrage" bindtap="handleTap1">
+      <view slot="title">
+        <text style="text-align:center">注册</text>
+      </view>
+      <view slot="content">
+        <text style="text-align:center">请点击上方图标</text>
+        <view>
+          <text style="text-align:center">完成信息注册</text>
+        </view>
+      </view>
+    </i-step>
+    <i-step status="process" icon="brush" bindtap="handleTap2">
+      <view slot="title">
+        <text style="text-align:center">填写订单</text>
+      </view>
+      <view slot="content" icon="camera" bindtap="handleTap3">
+        <text style="text-align:center">请点击上方图标</text>
+        <view>
+          <text style="text-align:center">可进行快捷下单</text>
+        </view>
+      </view>
+    </i-step>
+    <i-step icon="collection">
+      <view slot="title">
+        <text style="text-align:center">完成</text>
+      </view>
+      <view slot="content">
+        <text style="text-align:center">若有任何意见或问题</text>
+        <view>
+          <text style="text-align:center">请联系工作人员</text>
+        </view>
+      </view>
+    </i-step>
+  </i-steps>
+  <view class="footer2">
+    <text>The key of wisdom </text>
+  </view>
+</view>
+<!-- <button bindtap='countdown'>60秒倒计时</button>
+<text>{{second}}</text> -->

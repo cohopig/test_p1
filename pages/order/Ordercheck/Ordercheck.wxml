@@ -1,0 +1,116 @@
+<i-card bindtap="" urgent="{{urgent}}" title="订单类型：{{pickerArray[Order_type]}}" extra="{{create_time}}" condition="订单状态：{{ConditionArray[Order_condition]}}" thumb="{{srcArray[Order_type]}}" data-menuItem="{{order_list[index]}}">
+
+  <view slot="content">订单内容：{{Order_content}}</view>
+  <view slot="footer">订单备注：{{Order_notes}}</view>
+  <view wx:if="{{Order_condition!=4}}" slot="footer">配送地址：{{Order_Add}}</view>
+  <text wx:if="{{Order_condition!=4}}" selectable='true' slot="footer">Wechat：{{Wechat}}</text>
+  <view slot="footer">顾客昵称：{{Order_name}}</view>
+  <view wx:if="{{Order_condition!=4}}" slot="footer" bindtap="PhoneCall">联系号码：
+    <text style='color:{{color_number}}' selectable='true'>{{Order_number}}</text>
+  </view>
+  <view wx:if="{{!Order_mon1a}}" slot="footer">订单预计总价：顾客未预估，请跑手针对订单自行分析</view>
+  <view wx:if="{{Order_mon1a}}" slot="footer">订单预计总价：{{Order_mon1a}}</view>
+  <view slot="footer">订单报酬：{{Order_mon2a}}</view>
+  <view slot="footer">订单创建时间：{{create_time}}</view>
+  <view wx:if="{{Order_condition==3||Order_condition==4}}" slot="footer">订单完成时间：{{Complete_time}}</view>
+  <view wx:if="{{Order_condition==5}}" slot="footer">订单取消时间：{{Complete_time}}</view>
+</i-card>
+
+<view wx:if="{{Order_condition==2}}" class='main'>
+  <view style='display:flex;margin:5rpx 20rpx 5rpx'>
+    <image class='btnImg1' src='../../../images/年轻人.png'></image>
+    <view style='margin:5rpx 20rpx 5rpx;display:flex'>T客信息：</view>
+  </view>
+  <view style='display:flex;margin:5rpx 20rpx 5rpx'>
+    <image class='btnImg2' src='../../../images/phone.png'></image>
+    <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex' bindtap="PhoneCall_User">联系方式：
+      <text style='color:{{color_number_User}};display:flex' selectable='true'>{{User_num}}</text>
+    </view>
+  </view>
+  <view style='display:flex;margin:5rpx 20rpx 5rpx'>
+    <image class='btnImg2' src='../../../images/个人中心-我的足迹.png'></image>
+    <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>共接单次数：{{AllGetOrdertimes}}</view>
+  </view>
+</view>
+<view class="chargeInfo-model result-model" wx:if="{{(!hideCommon&&hideCommon1)&&complete==1}}">
+  <text class="chargeInfo-model-title">倒计时：</text>
+  <view class="chargeInfo-model-info">
+    <text class="model-info">{{clock}}</text>/秒
+  </view>
+</view>
+<view style='width:60%' class="common" wx:if="{{(!hideText&&hideText2)&&complete==1}}">
+  <image class='btnImg2' src='../../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>订单计时三分钟后将无法取消订单</view>
+</view>
+<view style='width:60%' class="common" wx:if="{{hideText&&!warm}}">
+  <image class='btnImg2' src='../../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>请在规定时间内完成订单</view>
+</view>
+<view style='width:60%' class="common" wx:if="{{warm}}">
+  <image class='btnImg2' src='../../../images/警告.png'></image>
+  <view style='font-size: 34rpx;margin:5rpx 20rpx 5rpx;display:flex'>订单已超时，请尽快完成</view>
+</view>
+
+<!-- <view class='t0_PayOrdeContainer'>
+  <modal title="付款二维码" hidden="{{modalHidden}}" no-cancel="true" bindconfirm="t0_PayOrderModalConfirm">
+    <view>
+      <image class="t0_PayOrdeImage" src="../../../images/_20190320195228.png" mode='aspectFill'></image>
+    </view>
+    <view style='text-align:center'>请及时完成付款</view>
+  </modal>
+</view> -->
+
+<modal hidden="{{hidden1}}" title="温馨提示" confirm-text="确认取消订单" cancel-text="返回页面" bindcancel="bindcancel1" bindconfirm="t0_CancelOrder" no-cancel="{{nocancel}}">
+  <view style='text-align:center'>请确定是否取消订单</view>
+</modal>
+<modal hidden="{{hidden3}}" title="温馨提示" confirm-text="确认取消订单" cancel-text="返回页面" bindcancel="bindcancel3" bindconfirm="t1_CancelOrder" no-cancel="{{nocancel}}">
+  <view style='text-align:center'>请确定是否取消订单</view>
+</modal>
+<modal hidden="{{hidden2}}" title="温馨提示" confirm-text="确认取消订单" cancel-text="返回页面" bindcancel="bindcancel2" bindconfirm="t2_CancelOrder" no-cancel="{{nocancel}}">
+  <view style='text-align:center'>多次取消将影响您在平台的信用数据，请确认无误再执行操作</view>
+</modal>
+
+<!-- <button class='btn_0_Pay' wx:if="{{Order_condition==0}}" bindtap="t0_PayOrderButtonTap">
+  <image class='btnImg' src='../../../images/付款.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 20rpx 5rpx'>订单付款</view>
+</button>
+<button class='btn_0_Urge' wx:if="{{Order_condition==0}}" bindtap="t0_UrgeOrder">
+  <image class='btnImg' src='../../../images/审核.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 20rpx 5rpx'>催审订单</view>
+</button>
+<button class='btn_0_Cancel' wx:if="{{Order_condition==0}}" bindtap="cancel1">
+  <image class='btnImg' src='../../../images/取消订单1.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 20rpx 5rpx'>取消订单</view>
+</button> -->
+<!-- <button class='btn_1_Uporder' wx:if="{{Order_condition==1}}" bindtap="t1_AlterOrder">
+  <image class='btnImg' src='../../../images/修改.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 20rpx 5rpx'>修改订单</view>
+</button> -->
+<!-- <button class='btn_1_Uppay' wx:if="{{Order_condition==1}}" bindtap="t1_PayUpOrder">
+  <image class='btnImg' src='../../../images/提高.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 20rpx 5rpx'>提高酬金</view>
+</button> -->
+<button class='btn_1_Cancel' wx:if="{{Order_condition==1}}" bindtap="cancel3">
+  <image class='btnImg' src='../../../images/取消订单1.png'></image>
+  <view style='font-size: 29rpx;margin:5rpx 20rpx 5rpx'>取消订单</view>
+</button>
+<button class='btn_2_complete' wx:if="{{Order_condition==2}}" bindtap="t2_CompleteOrder">
+  <image class='btnImg' src='../../../images/订单完成.png'></image>
+  <view style='font-size: 32rpx;margin:5rpx 20rpx 5rpx'>确认完成订单</view>
+</button>
+<button class='btn_2_cancel' wx:if="{{Order_condition==2}}" bindtap="cancel2">
+  <image class='btnImg' src='../../../images/取消订单.png'></image>
+  <view style='font-size: 30rpx;margin:5rpx 18rpx 5rpx'>取消订单</view>
+</button>
+<button wx:if="{{Order_condition==3}}" class='btn_3' bindtap="t3_EvaOrder">
+  <image class='btnImg' src='../../../images/未评价.png'></image>
+  <view style='font-size: 28rpx;margin:5rpx 10rpx 5rpx'>去评价</view>
+</button>
+<button class='btn1' open-type='contact'>
+  <image class='btnImg' src='../../../images/机器人.png'></image>
+  <view>联系客服</view>
+</button>
+<view class="footer">
+  <text>Copyright @ 2019 XkItCenter.</text>
+  <text>All Rights Reserved.</text>
+</view>

@@ -1,0 +1,47 @@
+<view class="header-title">正在进行中的订单</view>
+<view class="sort-list">
+  <view data-index="0" bindtap="onOverallTag1" class="sort {{selected == 0?'sort-active':''}}">
+    {{sortSelected1}}
+  </view>
+  <view data-index="1" bindtap="onOverallTag2" class="sort {{selected == 1?'sort-active':''}}">
+    {{sortSelected2}}
+  </view>
+
+</view>
+<view class="mask" hidden="{{mask1Hidden}}" bindtap="mask1Cancel">
+  <view class="overall-sort-list">
+    <block wx:for="{{sortList1}}" wx:key="">
+      <view class="overall-sort" data-index="{{index}}" bindtap="sortSelected1">{{item.sort}}</view>
+    </block>
+  </view>
+</view>
+<view class="mask" hidden="{{mask2Hidden}}" bindtap="mask2Cancel">
+  <view class="overall-sort-list">
+    <block wx:for="{{sortList2}}" wx:key="">
+      <view class="overall-sort" data-index="{{index}}" bindtap="sortSelected2">{{item.sort}}</view>
+    </block>
+  </view>
+</view>
+<scroll-view class='sv_order_list' scroll-y='true' style="height:{{scrollHeight}}px;">
+
+  <block wx:for="{{order_list_mine}}" wx:key="{{order_list}}">
+    <i-card urgent="{{item.urgent}}" title="订单类型：{{pickerArray[item.Order_type]}} " extra="订单编号：{{ item.Olyid }}" condition="订单状态：{{ConditionArray[item.Order_condition]}}" thumb="{{srcArray[item.Order_type]}}" data-menuItem="{{order_list_mine[index]}}" bindtap="Ordercheck">
+      <view slot="content">订单内容：{{ item.Order_content }}</view>
+      <view slot="footer">订单备注：{{ item.Order_notes }}</view>
+      <text wx:if="{{item.Order_condition == 2}}" selectable='true' slot="footer">联系号码：{{ item.Order_number }}</text>
+      <view wx:if="{{item.Order_condition == 2}}" slot="footer">收件人昵称：{{ item.Order_name }}</view>
+      <view wx:if="{{item.Order_condition == 2}}" slot="footer">收件地址：{{ item.Order_Add }}</view>
+      <text wx:if="{{item.Order_condition == 2}}" selectable='true' slot="footer">Wechat：{{item.Wechat}}</text>
+      <view wx:if="{{!item.Order_mon1a}}" slot="footer">订单预计总价：顾客未预估，请跑手针对订单自行分析</view>
+      <view wx:if="{{item.Order_mon1a}}" slot="footer">订单预计总价：{{item.Order_mon1a}}</view>
+      <view slot="footer">订单酬劳：{{ item.Order_mon2a }}</view>
+      <view slot="footer">订单创建时间：{{item.create_time}}</view>
+    </i-card>
+  </block>
+  <view class="footer">
+    <text>Copyright @ 2019 XkItCenter.</text>
+    <text>All Rights Reserved.</text>
+  </view>
+</scroll-view>
+
+<load-more wx:if="{{!order_list_mine.length > 0}}" tip='{{tip}}' loading='{{loading}}'></load-more>

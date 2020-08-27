@@ -1,0 +1,30 @@
+.button-hover {
+  background-color:rgb(250, 250, 250);
+}
+
+.other-button-hover {
+  background-color: blue;
+}
+
+.input1 {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+.input2 {
+  padding: 0 10rpx;
+  background-color: #fff;
+}
+
+.section1{
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}/*#F8F8F8*/
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}

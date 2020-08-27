@@ -1,0 +1,62 @@
+<view style='text-align:center'>
+  <text>信息注册</text>
+</view>
+<!-- <scroll-view class='sv_order_list' scroll-y='true' style="height:{{scrollTitleHeight}}px;"> -->
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <i-panel title="请填写您的个人信息">
+    <!--性别 -->
+    <i-input name='grade' value="" type="number" title="年级" placeholder="如18级（18）" />
+    <!-- number -->
+    <i-input name='major' value="" type="textarea" title="专业 " placeholder="请具体到某系" />
+    <i-input name='StuId' value="" type="number" title="学号 " placeholder="请输入13位数学号" />
+    <!-- number -->
+
+  </i-panel>
+  <!-- <i-panel title="学生证照片 ">
+
+</i-panel>
+<view class="picture_list ">
+ 2 
+ 3     <view wx:for="{{upload_picture_list}} " class="picture_item " wx:key="{{index}} ">
+ 4       <image wx:if="{{item.upload_percent < 100}} " src="{{item.path}} " mode="aspectFill "></image>
+ 5       <image wx:if="{{item.upload_percent==1 00}} " src="{{item.path_server}} " mode="aspectFill "></image>
+ 6       <view class="upload_progress " wx:if="{{item.upload_percent < 100}} " data-index="{{index}} " bindtap="previewImg ">{{item.upload_percent}}%</view>
+ 7       <text class='del' bindtap='deleteImg' data-src='{{image}}' style='display:{{isDel}}' data-index="{{index}} ">×</text>
+ 8     </view>
+ 9 
+10     <view class='picture_item'>
+11       <view class="add-image " bindtap='uploadpic'>
+12         <text>+</text>
+13       </view>
+14     </view>
+15   </view>
+16   <button bindtap='uploadimage' class='yes-upload'>确定上传</button> -->
+  <checkbox-group bindchange="agreeMent" class="info">
+    <checkbox value='true' checked='true' /> 同意遵守tt跑腿的
+    <text class="user-agree" bindtap="isAgreementButton"> 《用户协议》</text>
+  </checkbox-group>
+
+  <view class='modalContainer' catchtouchmove="move">
+    <modal title="使用须知" hidden="{{modalHidden}}" bindconfirm="isAgreementConfirm" no-cancel="true" no-confirm="true" bindcancel="isAgreementCandel">
+      <scroll-view class='sv_order_list_1' scroll-y='true' style="height:{{scrollHeight}}px;;">
+        <view>
+          <view> 使用须知</view> 一．注册协议 星球科技小程序的TT跑腿信息平台所提供的各项服务的所有权和运营权，均属于本星球科技小程序开发方所有。 注册协议是用户因使用TT跑腿的各项服务与TT跑腿平台订立的，正式的，完整的协议。用户在TT跑腿平台注册，即表示接受本协议的所有条件和条款。用户部分或全部不接受本协议条款的不得使用TT跑腿平台。 二．服务条款 (1)定义： TT跑腿小程序，小程序提供用户信息管理，小程序里可以进行服务诉求的发布，例如代购，代拿，代送等，撮合订单的处理，查询账号信息，建议定价，纠纷争议调解等的交易处理服务。TT跑腿小程序不直接介入用户与跑手之间的代购，代拿，代送等服务的交易，如果双方因服务产生争议的应根据相应的条款或法律法规自行协商或寻求小程序客服调解。
+          跑手:是指使用小程序获取用户发布的服务诉求信息，并对此服务信息提供代购，代拿，代送等服务的第三方。 用户:是指在本小程序发布服务诉求信息的的一方，在本使用条款下，特指自愿注册，有代购，代拿，代送等需求的一方。用户需要根据本小程序规定，依法支付跑手相应的服务费。 订单:是指用户通过TT跑腿小程序平台发布的，在TT跑腿小程序平台显示的代购，代拿，代送等服务诉求信息，跑手一旦通过点击确认的方式承诺代购，代拿，代送等订单的，代购，代拿，代送合同即为生效。订单作为跑手与用户的代购，代拿，代送等的合同，是双方权利义务的证明文件，双方线下达成交易条件的（例如代收付款、附条件代购，代拿，代送等）的，各自自行保留相应的证据。
+          TT跑腿费:是指跑手使用平台信息服务获悉用户的订单需求，在接抢单后按照订单内容完成服务后，用户向跑手支付订单服务内容外的服务费用，如果跑手有服务内容内的各种垫付费用，用户自行结清给跑手。 (2)服务条款的确认和接受 1.用户应当在使用TT跑腿平台的服务之前认真阅读全部条款内容。如您对条款有任何疑问的，应向TT跑腿客服咨询。但无论您事实上是否在使用TT跑腿平台的服务之前认真阅读了本条款内容，只要您使用TT跑腿平台的服务，即视为接受本条款的约束，届时您不应该以未阅读本条款的内容或者未获得TT跑腿平台对您问询的解答等理由，主张本条款无效，或要求撤销本条款。
+          2.用户必须完全完全同意所有服务条款并完成注册程序，才能成为TT跑腿的注册用户。在您按照注册页面提示填写信息、阅读并同意本条款并完成全部注册程序后或以其他TT跑腿允许的方式实际使用TT跑腿平台的服务时，您即受本条款的约束。 3.用户须确认，在完成注册程序或以其他TT跑腿允许的方式实际使用TT跑腿平台的服务时，应当具备相应的民事行为能力的自然人、法人或其他组织。如果不具备前述主体资格（如用户在18周岁以下），只能在父母或监护人的监护参与下才能使用TT跑腿创建或接受任务事项；如未按照上述规定使用TT跑腿平台造成的不利后果及损失，由用户本人或其监护人承担。TT跑腿有权注销该用户的账号。若法人或其他组织注册，应当保证注册时提供信息和资质的完整性，真实性，合法性。TT跑腿平台有权根据业务需要，不定期审核用户的注册信息及提供的资质是否完整真实有效，一旦发现信息和资质不符合TT跑腿平台业务规则的、TT跑腿平台有权终止或注销该账户。
+          4.当您在线下接受服务的同时，您也承认了您拥有相应的权利能力和行为能力。您对提供或接受的任务事项的真实性、合法性负责，并能够独立承担法律责任。 5.用户确认：本协议条款是处理双方权利义务的当然约定依据，除非违反国家强制法律，否则始终有效。 6.TT跑腿平台保留在中华人民共和国宪法允许的范围内独自决定拒绝服务，关闭用户账号或取消任务事项的权利。 7.本协议内容包括协议正文及所有TT跑腿平台已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的组成部分，与协议正文具有同等的法律效力。除另行明确声明外，任何TT跑腿平台及其关联的公司提供的服务均受本协议约束。您承诺接受并遵守本协议的约定。如果您不同意本协议的约定，您应立即停止使用TT跑腿平台的服务。
+          8.TT跑腿平台有权根据国家法律法规的更新、产品和服务规则的调整需要不时地修订、修改本协议或各类规则，并以其他方式进行公示。如您继续使用TT跑腿平台的服务的，即表示您接受经修订的协议和规则。 修订版《用户协议》的生效日期: 2017 年 6 月 7 日 本概述旨在帮助您更好了解《用户协议》的修订内容以及对您的可能影响。 当您查看、访问或以其他方式使用《用户协议》涵盖的产品和服务时，将受到《用户协议》的约束。为了充分了解约束您使用我们“服务”的修订内容和条款，您需要阅读《用户协议》全文，并仔细阅读在使用我们服务期间适用的任何其他条款
+        </view>
+      </scroll-view>
+    </modal>
+  </view>
+
+  <view style='text-align:center'>
+    <!-- <button style="text-align:center " size='small' formType="submit " type='primary' disabled="{{submitBtn}}">提交</button> -->
+    <button class='btn2' formType="submit" type="primary" disabled='{{submitBtn}}'>
+      <view>确认提交</view>
+    </button>
+  </view>
+</form>
+<!-- </scroll-view> -->

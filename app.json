@@ -1,0 +1,95 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index2/index2",
+    "pages/postorder/postorder",
+    "pages/appoint1/appoint1",
+    "pages/postorder/confirmForest",
+    "pages/mine/mine",
+    "pages/logs/logs",
+    "pages/order/order",
+    "pages/map/map",
+    "pages/login/login",
+    "pages/OrderList/OrderList",
+    "pages/location/location",
+    "pages/OrderList/Ordercheck",
+    "pages/Usercontent/Usercontent",
+    "pages/order/ordernoting/ordernoting",
+    "pages/order/ordering/ordering",
+    "pages/order/ordered/ordered",
+    "pages/order/ordernot/ordernot",
+    "pages/order/Ordercheck/Ordercheck",
+    "pages/user-code/user-code",
+    "pages/user-edit/user-edit",
+    "pages/Integral/Integral",
+    "pages/order/order_my_post/order_my_post",
+    "pages/mine/issues/issues",
+    "pages/order/ordered/or",
+    "pages/Usercontent/u2"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#cf3529",
+    "navigationBarTitleText": "T客帮帮",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#e0620d",
+    "backgroundColor": "#e6e6e6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/shoye.png",
+        "selectedIconPath": "images/shoye1.png"
+      },
+      {
+        "pagePath": "pages/index2/index2",
+        "text": "下单界面",
+        "iconPath": "images/xiadan.png",
+        "selectedIconPath": "images/xiadan1.png"
+      },
+      {
+        "pagePath": "pages/OrderList/OrderList",
+        "iconPath": "images/dingdanliebiao.png",
+        "selectedIconPath": "images/dingdanliebiao1.png",
+        "text": "订单列表"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "images/xinrenzhinan.png",
+        "selectedIconPath": "images/xinrenzhinan1.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "usingComponents": {
+    "i-button": "../../dist/button/index",
+    "i-card": "../../dist/card/index",
+    "i-notice-bar": "../../dist/notice-bar/index",
+    "i-panel": "../../dist/panel/index",
+    "i-steps": "../../dist/steps/index",
+    "i-step": "../../dist/step/index",
+    "i-modal": "../../dist/modal/index",
+    "i-input": "../../dist/input/index",
+    "i-input-number": "../../dist/input-number/index",
+    "load-more": "../../dist/load-more/index",
+    "i-count-down": "../../dist/count-down/index",
+    "navbar": "/components/navbar/navbar",
+    "i-rate": "../../dist/rate/index",
+    "i-cell": "../../dist/cell/index"
+  },
+  "debug": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将被用于分析平台订单及订单配送等"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,88 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 100px;
+}
+
+.ttimage {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+}
+
+.btn1 {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 20rpx;
+  background-color: white;
+  color: #999;
+  border-radius: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+}
+
+.btnImg {
+  width: 115rpx;
+  height: 115rpx;
+}
+
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0;
+}
+
+.ground1 {
+  display: flex;
+  position: relative;
+  padding: 50rpx 40rpx 100rpx 40rpx;
+  background-color: #cf3529;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.nav-title {
+  position: absolute;
+  text-align: center;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 36rpx;
+  color: #2c2b2b;
+  font-weight: 600;
+}
+.footer2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 11pt;
+  line-height: 150%;
+  text-align: center;
+  padding: 100rpx 0 15rpx;
+  color: #aaa;
+}
